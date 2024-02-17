@@ -1,6 +1,6 @@
-﻿//Создаем словарь с делегатами математических операций, если в будующем появиться необходимость расширить функционал, достаточно добавить сюда новый оператор
-using System.Text;
+﻿using System.Text;
 
+//Создаем словарь с делегатами математических операций, если в будующем появиться необходимость расширить функционал, достаточно добавить сюда новый оператор
 Dictionary<string, Func<double, double, string>> Operations = new Dictionary<string, Func<double, double, string>>
 {
     { "*", (double a, double b)=>{ return (a * b).ToString(); } },
