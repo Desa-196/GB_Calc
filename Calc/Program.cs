@@ -17,6 +17,8 @@ while (true)
     //Создаем StringBuilder и наполняем его поддерживаемыми выражениями из словаря.
     StringBuilder sb = new StringBuilder();
     Operations.ToList().ForEach(x => sb.Append($" a {x.Key} b,"));
+    //Удаляем последнюю запятую
+    sb.Remove(sb.Length-1, 1);
 
     Console.WriteLine($"Введите выражение вида {sb} или q для выхода");
     //Читаем ввод пользователя
