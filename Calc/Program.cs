@@ -1,4 +1,6 @@
 ﻿//Создаем словарь с делегатами математических операций, если в будующем появиться необходимость расширить функционал, достаточно добавить сюда новый оператор
+using System.Text;
+
 Dictionary<string, Func<double, double, double>> Operations= new Dictionary<string, Func<double, double, double>>
 {
     { "*", (double a, double b)=>{ return a * b; } },
@@ -12,7 +14,11 @@ Console.WriteLine("Программа \"Калькулятор\"");
 
 while (true)
 {
-    Console.WriteLine("Введите выражение вида a + b, a - b, a / b, a * b или q для выхода");
+    //Создаем StringBuilder и наполняем его поддерживаемыми выражениями из словаря.
+    StringBuilder sb = new StringBuilder();
+    Operations.ToList().ForEach(x => sb.Append($" a {x.Key} b,"));
+
+    Console.WriteLine($"Введите выражение вида {sb} или q для выхода");
     //Читаем ввод пользователя
     string input = Console.ReadLine();
     //Удаляем пробелы
